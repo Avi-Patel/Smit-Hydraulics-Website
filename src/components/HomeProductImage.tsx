@@ -2,9 +2,11 @@ import { Link } from "@sprinklrjs/spaceweb/link";
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { Image } from "@sprinklrjs/spaceweb/image";
 
-import { useHover } from "@/hooks/useHover";
+import { useHover } from "../hooks/useHover";
 
-import { Product } from "@/types";
+import { Product } from "../types";
+
+import { TABS } from "./header/constants";
 
 export const HomeProductImage = ({ item }: { item: Product }) => {
   const [hoverHandlers, isHovering] = useHover();
@@ -36,7 +38,10 @@ export const HomeProductImage = ({ item }: { item: Product }) => {
           },
         ]}
       >
-        <Link href={`/product/${item.id}`} className="font-600 spr-text-01">
+        <Link
+          href={`/${TABS.PRODUCTS}`}
+          className="font-600 spr-text-01 text-center break-normal"
+        >
           {item.label}
         </Link>
       </Box>

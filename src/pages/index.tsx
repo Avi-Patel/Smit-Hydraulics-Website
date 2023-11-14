@@ -1,22 +1,27 @@
-import { Layout } from "@/components/layout";
+import { Layout } from "../components/layout";
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { Typography } from "@sprinklrjs/spaceweb/typography";
 import { Link } from "@sprinklrjs/spaceweb/link";
-import { Carousel } from "@/components/carousel";
-import { HomeProductImage } from "@/components/HomeProductImage";
+import { Carousel } from "../components/carousel";
+import { HomeProductImage } from "../components/HomeProductImage";
+import { ThemeProvider } from "@sprinklrjs/spaceweb/theme";
 
-import { HOME_PAGE_ITEMS } from "@/constants/products";
-import { TABS } from "@/components/header/constants";
+import hyperspaceDark from "@sprinklrjs/spaceweb-themes/hyperspace/dark";
+
+import { PRODUCTS } from "../constants/products";
+import { TABS } from "../components/header/constants";
 
 export default function Home() {
   return (
     <Layout title="Smit Hydraulics">
       <Box className="flex flex-col">
-        <Carousel gap={16} upfrontCount={5}>
-          {HOME_PAGE_ITEMS.map((i) => (
-            <HomeProductImage key={i.id} item={i} />
-          ))}
-        </Carousel>
+        <ThemeProvider theme={hyperspaceDark}>
+          <Carousel gap={16} upfrontCount={5} controlsPlacement="horizontal">
+            {PRODUCTS.map((i) => (
+              <HomeProductImage key={i.id} item={i} />
+            ))}
+          </Carousel>
+        </ThemeProvider>
 
         <Box className={["flex flex-col gap-4 py-8 px-16 opacity-80"]}>
           <Typography variant="h1">Who we are?</Typography>

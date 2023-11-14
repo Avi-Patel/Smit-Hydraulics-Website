@@ -1,24 +1,27 @@
 import { ReactNode, Children, useState, useMemo, useCallback } from "react";
 
-import { ThemeProvider } from "@sprinklrjs/spaceweb/theme";
 import { Box } from "@sprinklrjs/spaceweb/box";
-import { Image } from "@sprinklrjs/spaceweb/image";
+import { IconButton } from "@sprinklrjs/spaceweb/button";
 import ChevronLeftIcon from "@sprinklrjs/spaceweb-icons/solid/ChevronLeft";
 import ChevronRightIcon from "@sprinklrjs/spaceweb-icons/solid/ChevronRight";
 
-import hyperspaceDark from "@sprinklrjs/spaceweb-themes/hyperspace/dark";
-
 import { usePage } from "./hooks/usePage";
-import { useHover } from "@/hooks/useHover";
+import { useHover } from "../../hooks/useHover";
+
+import { ClassName } from "@sprinklrjs/spaceweb/types";
 
 export const Carousel = ({
   upfrontCount,
   children,
   gap = 16,
+  className,
+  controlsPlacement,
 }: {
   upfrontCount: number;
   children: ReactNode;
   gap?: number;
+  className?: ClassName;
+  controlsPlacement: "vertical" | "horizontal";
 }) => {
   const [widths, setWidths] = useState<number[] | undefined>(undefined);
 
@@ -56,13 +59,15 @@ export const Carousel = ({
   }, []);
 
   return (
-    <ThemeProvider theme={hyperspaceDark}>
-      <Box
-        className={[
-          "flex w-full spr-ui-01 justify-center",
-          { height: "50rem" },
-        ]}
-      >
+    <Box
+      className={[
+        "flex w-full spr-ui-01 justify-center",
+        controlsPlacement === "vertical" ? "flex-col items-center gap-2" : "",
+        { height: "50rem" },
+        className,
+      ]}
+    >
+      {controlsPlacement === "horizontal" ? (
         <Box
           className={[
             "flex-1 h-full flex items-center justify-center",
@@ -76,32 +81,55 @@ export const Carousel = ({
             className={isLeftHovered ? "spr-icon-01" : "spr-icon-06"}
           />
         </Box>
+      ) : null}
+      <Box
+        className={[
+          "flex overflow-hidden",
+          controlsPlacement === "horizontal" ? "my-3" : "",
+          {
+            width: `${
+              (currentItemsTotalWidth ?? 0) +
+              gap * ((currentItemWidths?.length ?? upfrontCount) - 1)
+            }px`,
+            transition: "width 0.3s",
+          },
+        ]}
+      >
         <Box
+          ref={refFn}
           className={[
-            "flex my-3 overflow-hidden",
+            "flex",
             {
-              width: `${
-                (currentItemsTotalWidth ?? 0) +
-                gap * ((currentItemWidths?.length ?? upfrontCount) - 1)
-              }px`,
-              transition: "width 0.3s",
+              gap: `${gap}px`,
+              transform: `translateX(-${xTranslate}px)`,
+              transition: "transform 0.5s ease-in-out",
             },
           ]}
         >
-          <Box
-            ref={refFn}
-            className={[
-              "flex",
-              {
-                gap: `${gap}px`,
-                transform: `translateX(-${xTranslate}px)`,
-                transition: "transform 0.5s ease-in-out",
-              },
-            ]}
-          >
-            {children}
-          </Box>
+          {children}
         </Box>
+      </Box>
+      {controlsPlacement === "vertical" ? (
+        <Box className="flex gap-4">
+          <IconButton
+            onClick={handleBack}
+            size="sm"
+            tooltipContent="Back"
+            disabled={page === 0}
+          >
+            <ChevronLeftIcon className="spr-icon-02" />
+          </IconButton>
+          <IconButton
+            onClick={handleForward}
+            size="sm"
+            tooltipContent="Forward"
+            disabled={page === totalPages - 1}
+          >
+            <ChevronRightIcon className="spr-icon-02" />
+          </IconButton>
+        </Box>
+      ) : null}
+      {controlsPlacement === "horizontal" ? (
         <Box
           className={[
             "flex-1 h-full flex items-center justify-center",
@@ -115,7 +143,7 @@ export const Carousel = ({
             className={isRightHovered ? "spr-icon-01" : "spr-icon-06"}
           />
         </Box>
-      </Box>
-    </ThemeProvider>
+      ) : null}
+    </Box>
   );
 };

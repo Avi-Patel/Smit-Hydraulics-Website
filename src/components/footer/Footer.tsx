@@ -1,33 +1,31 @@
 import { ReactElement } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { Typography } from "@sprinklrjs/spaceweb/typography";
-import { Image } from "@sprinklrjs/spaceweb/image";
 import { BaseButton } from "@sprinklrjs/spaceweb/base-button";
 import { ThemeProvider } from "@sprinklrjs/spaceweb/theme";
 import { StatefulTooltip } from "@sprinklrjs/spaceweb/tooltip";
-import { Info } from "@/components/info";
+import { Info } from "../info";
 import TickCircleClrIcon from "@sprinklrjs/spaceweb-icons/solid/TickCircleClr";
 import LocationIcon from "@sprinklrjs/spaceweb-icons/solid/Location";
 
 import hyperspaceDark from "@sprinklrjs/spaceweb-themes/hyperspace/dark";
 
-import { LOGO_LINK } from "@/constants";
+// import companyNameImage from ".";
 
 export const Footer = (): ReactElement => (
   <ThemeProvider theme={hyperspaceDark}>
     <Box className="flex w-full px-3 py-4 spr-ui-01 gap-3">
       <Box className="flex items-center gap-2">
-        <Link href="/">
-          <Image
-            src={LOGO_LINK}
-            alt="smit hydraulics"
-            height={60}
-            width={100}
-            className="rounded-8 overflow-hidden"
-          />
-        </Link>
+        <Image
+          src="/companyName.png"
+          alt="Smit Hydraulics"
+          height={50}
+          width={100}
+          style={{ borderRadius: "6px" }}
+        />
         <Box className="flex flex-col gap-1">
           <Typography variant="h5" weight="semibold" className="spr-text-01">
             &#169; Smit Hydraulics. All Rights Reserved

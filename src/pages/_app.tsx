@@ -5,7 +5,7 @@ import { ThemeProvider } from "@sprinklrjs/spaceweb/theme";
 import SpacewebProvider from "@sprinklrjs/spaceweb/spacewebProvider";
 import light from "@sprinklrjs/spaceweb-themes/hyperspace/light";
 
-import { canUseDom } from "@/utils/canUseDom";
+import { canUseDom } from "../utils/canUseDom";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

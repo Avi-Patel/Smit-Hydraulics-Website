@@ -2,10 +2,10 @@ import { ReactElement, ReactNode } from "react";
 import Head from "next/head";
 
 import { Box } from "@sprinklrjs/spaceweb/box";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { Header } from "../header";
+import { Footer } from "../footer";
 
-import { useStickyElement } from "@/hooks/useStickyElement";
+import { useStickyElement } from "../../hooks/useStickyElement";
 
 import { styled } from "@sprinklrjs/spaceweb/style";
 
@@ -41,7 +41,9 @@ export const Layout = ({
         >
           <Header />
         </Box>
-        <StyledBody className="w-full flex-1">{children}</StyledBody>
+        <StyledBody className="w-full flex flex-col flex-1">
+          {children}
+        </StyledBody>
         <Footer />
       </Box>
     </Box>
