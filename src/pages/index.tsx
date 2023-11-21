@@ -1,7 +1,8 @@
+import Link from "next/link";
+
 import { Layout } from "../components/layout";
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { Typography } from "@sprinklrjs/spaceweb/typography";
-import { Link } from "@sprinklrjs/spaceweb/link";
 import { Carousel } from "../components/carousel";
 import { HomeProductImage } from "../components/HomeProductImage";
 import { ThemeProvider } from "@sprinklrjs/spaceweb/theme";
@@ -57,7 +58,9 @@ export default function Home() {
             are well known for our ethical business practices and hope to expand
             our horizons in the coming years.
           </Typography>
-          <Link href={`/${TABS.ABOUT_US}`}>More About Us</Link>
+          <Link href={`/${TABS.ABOUT_US}`}>
+            <Typography variant="bs1">More About Us</Typography>
+          </Link>
         </Box>
       </Box>
     </Layout>

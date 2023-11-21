@@ -1,5 +1,7 @@
-import { Link } from "@sprinklrjs/spaceweb/link";
+import Link from "next/link";
+
 import { Box } from "@sprinklrjs/spaceweb/box";
+import { Typography } from "@sprinklrjs/spaceweb/typography";
 import { Image } from "@sprinklrjs/spaceweb/image";
 
 import { useHover } from "../hooks/useHover";
@@ -40,9 +42,14 @@ export const HomeProductImage = ({ item }: { item: Product }) => {
       >
         <Link
           href={`/${TABS.PRODUCTS}`}
-          className="font-600 spr-text-01 text-center break-normal"
+          style={{ textDecorationColor: "white" }}
         >
-          {item.label}
+          <Typography
+            variant="bs1"
+            className="font-600 spr-text-01 text-center break-normal"
+          >
+            {item.label}
+          </Typography>
         </Link>
       </Box>
     </Box>

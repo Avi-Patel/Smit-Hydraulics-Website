@@ -54,7 +54,11 @@ export const Footer = (): ReactElement => (
             </Box>
           }
         >
-          <Link href="https://www.google.com/maps?q=22.99160500,72.64303800">
+          <Link
+            href="https://www.google.com/maps?q=22.99160500,72.64303800"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Box className="flex items-center">
               <LocationIcon size={18} className="mr-1" />
               <Typography

@@ -9,8 +9,8 @@ import { PRODUCTS } from "../../constants/products";
 const Products = () => {
   return (
     <Layout title="Products">
-      <Box className="flex-1 flex flex-col p-4 gap-4">
-        <Typography variant="h3" weight="bold">
+      <Box className="flex-1 flex flex-col p-10 gap-4">
+        <Typography variant="h2" weight="bold">
           Products We Offer
         </Typography>
         <Typography

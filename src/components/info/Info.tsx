@@ -10,7 +10,11 @@ import EmailCircleClrIcon from "@sprinklrjs/spaceweb-icons/brand/EmailCircleClr"
 export const Info = (): ReactElement => (
   <Box className="flex items-center gap-3">
     <StatefulTooltip content="info.smithydraulics@gmail.com">
-      <a href="mailto:info.smithydraulics@gmail.com">
+      <a
+        href="mailto:info.smithydraulics@gmail.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <BaseButton className="flex items-center gap-1">
           <EmailCircleClrIcon size={18} />
         </BaseButton>
