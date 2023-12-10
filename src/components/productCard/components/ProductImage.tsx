@@ -5,7 +5,6 @@ import { Typography } from "@sprinklrjs/spaceweb/typography";
 import { Image } from "@sprinklrjs/spaceweb/image";
 import { Carousel } from "../../carousel";
 import { ImageModal } from "./imageModal";
-import ProductCircleIcon from "@sprinklrjs/spaceweb-icons/solid/ProductCircle";
 
 import { StyleFn } from "@sprinklrjs/spaceweb/types";
 

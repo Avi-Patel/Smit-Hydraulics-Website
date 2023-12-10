@@ -3,9 +3,6 @@ import Image from "next/image";
 import { Layout } from "../../components/layout";
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { Typography } from "@sprinklrjs/spaceweb/typography";
-import { Table } from "@/components/table";
-import VerifiedIcon from "@sprinklrjs/spaceweb-icons/solid/Verified";
-import UsersIcon from "@sprinklrjs/spaceweb-icons/solid/Users";
 
 import { CUSTOMER_NAMES } from "@/constants/customerNames";
 

@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@sprinklrjs/spaceweb": "^12.47.1",
-    "@sprinklrjs/spaceweb-icons": "^3.0.49",
     "@sprinklrjs/spaceweb-themes": "^12.47.1",
     "next": "14.0.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
     "@types/node": "^20",

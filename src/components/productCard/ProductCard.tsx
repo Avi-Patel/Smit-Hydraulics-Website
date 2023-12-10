@@ -6,7 +6,7 @@ import { Typography } from "@sprinklrjs/spaceweb/typography";
 import { Carousel } from "../carousel";
 import { ProductImage } from "./components/ProductImage";
 import { ImageModal } from "./components/imageModal";
-import ProductCircleIcon from "@sprinklrjs/spaceweb-icons/solid/ProductCircle";
+import { FaBagShopping } from "react-icons/fa6";
 
 import { Product } from "../../types";
 import { StyleFn } from "@sprinklrjs/spaceweb/types";
@@ -70,7 +70,16 @@ export const ProductCard = ({ product }: { product: Product }) => {
             </Box>
           </Box>
           <Box className="flex items-start gap-2">
-            <ProductCircleIcon size={16} className="flex-none mt-0.5" />
+            <FaBagShopping
+              style={{
+                height: 16,
+                width: 16,
+                flexGrow: 0,
+                flexShrink: 0,
+                flexBasis: "auto",
+                marginTop: "2px",
+              }}
+            />
             <Typography
               variant="h4"
               weight="semibold"

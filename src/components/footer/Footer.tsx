@@ -8,8 +8,9 @@ import { BaseButton } from "@sprinklrjs/spaceweb/base-button";
 import { ThemeProvider } from "@sprinklrjs/spaceweb/theme";
 import { StatefulTooltip } from "@sprinklrjs/spaceweb/tooltip";
 import { Info } from "../info";
-import TickCircleClrIcon from "@sprinklrjs/spaceweb-icons/solid/TickCircleClr";
-import LocationIcon from "@sprinklrjs/spaceweb-icons/solid/Location";
+
+import { FaCheckCircle } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 import hyperspaceDark from "@sprinklrjs/spaceweb-themes/hyperspace/dark";
 
@@ -31,7 +32,10 @@ export const Footer = (): ReactElement => (
             &#169; Smit Hydraulics. All Rights Reserved
           </Typography>
           <Box className="flex items-center gap-1">
-            <TickCircleClrIcon size={14} />
+            <FaCheckCircle
+              size={14}
+              style={{ height: 14, width: 14, fill: "rgb(63, 191, 65)" }}
+            />
             <Typography variant="bs2" weight="semibold" className="spr-text-01">
               GST No.
             </Typography>
@@ -60,7 +64,9 @@ export const Footer = (): ReactElement => (
             target="_blank"
           >
             <Box className="flex items-center">
-              <LocationIcon size={18} className="mr-1" />
+              <FaLocationDot
+                style={{ height: 18, width: 18, marginRight: "4px" }}
+              />
               <Typography
                 variant="bs2"
                 weight="semibold"

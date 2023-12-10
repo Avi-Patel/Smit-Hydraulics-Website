@@ -2,8 +2,8 @@ import { Layout } from "../../components/layout";
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { Typography } from "@sprinklrjs/spaceweb/typography";
 import { Table } from "@/components/table";
-import VerifiedIcon from "@sprinklrjs/spaceweb-icons/solid/Verified";
-import UsersIcon from "@sprinklrjs/spaceweb-icons/solid/Users";
+import { MdVerifiedUser } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
 
 import {
   basicInformation,
@@ -12,7 +12,11 @@ import {
   paymentShipping,
 } from "@/constants/basicInformation";
 
+import { useStyle } from "@sprinklrjs/spaceweb/style";
+
 const Products = () => {
+  const { theme } = useStyle();
+
   return (
     <Layout title="Products">
       <Box className="flex-1 flex flex-col p-4 gap-10">
@@ -74,9 +78,9 @@ const Products = () => {
         <Box className="flex items-stretch gap-10 p-10">
           <Box className="w-16/24 rounded-8 px-6 py-8 spr-shadow-02">
             <Box className="flex items-center gap-3">
-              <VerifiedIcon
+              <MdVerifiedUser
                 size={24}
-                className={[({ theme }) => ({ fill: theme.spr.clrGreen })]}
+                style={{ fill: theme.spr.clrGreen, height: 24, width: 24 }}
               />
               <Typography variant="h3" weight="bold">
                 Our Quality Assurance
@@ -117,9 +121,8 @@ const Products = () => {
           </Box>
           <Box className="flex-1 rounded-8 px-6 py-8 spr-shadow-02">
             <Box className="flex items-center gap-3">
-              <UsersIcon
-                size={24}
-                className={[({ theme }) => ({ fill: theme.spr.clrGreen })]}
+              <FaUsers
+                style={{ fill: theme.spr.clrGreen, height: 24, width: 24 }}
               />
               <Typography variant="h3" weight="bold">
                 Customer Satisfaction Guarantee

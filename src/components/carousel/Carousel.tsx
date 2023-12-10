@@ -2,8 +2,8 @@ import { ReactNode, Children, useState, useMemo, useCallback } from "react";
 
 import { Box } from "@sprinklrjs/spaceweb/box";
 import { IconButton } from "@sprinklrjs/spaceweb/button";
-import ChevronLeftIcon from "@sprinklrjs/spaceweb-icons/solid/ChevronLeft";
-import ChevronRightIcon from "@sprinklrjs/spaceweb-icons/solid/ChevronRight";
+import { FaChevronLeft } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 
 import { usePage } from "./hooks/usePage";
 import { useHover } from "../../hooks/useHover";
@@ -76,9 +76,12 @@ export const Carousel = ({
           onClick={handleBack}
           {...leftButtonHandler}
         >
-          <ChevronLeftIcon
-            size={20}
-            className={isLeftHovered ? "spr-icon-01" : "spr-icon-06"}
+          <FaChevronLeft
+            style={{
+              height: 20,
+              width: 20,
+              fill: isLeftHovered ? "#F1F1F1" : "rgba(255, 255, 255, 0.6)",
+            }}
           />
         </Box>
       ) : null}
@@ -117,7 +120,13 @@ export const Carousel = ({
             tooltipContent="Back"
             disabled={page === 0}
           >
-            <ChevronLeftIcon className="spr-icon-02" />
+            <FaChevronLeft
+              style={{
+                height: 14,
+                width: 14,
+                fill: "#AEAEB2",
+              }}
+            />
           </IconButton>
           <IconButton
             onClick={handleForward}
@@ -125,7 +134,13 @@ export const Carousel = ({
             tooltipContent="Forward"
             disabled={page === totalPages - 1}
           >
-            <ChevronRightIcon className="spr-icon-02" />
+            <FaChevronRight
+              style={{
+                height: 14,
+                width: 14,
+                fill: "#AEAEB2",
+              }}
+            />
           </IconButton>
         </Box>
       ) : null}
@@ -138,9 +153,12 @@ export const Carousel = ({
           onClick={handleForward}
           {...rightButtonHandler}
         >
-          <ChevronRightIcon
-            size={20}
-            className={isRightHovered ? "spr-icon-01" : "spr-icon-06"}
+          <FaChevronRight
+            style={{
+              height: 20,
+              width: 20,
+              fill: isRightHovered ? "#F1F1F1" : "rgba(255, 255, 255, 0.6)",
+            }}
           />
         </Box>
       ) : null}
