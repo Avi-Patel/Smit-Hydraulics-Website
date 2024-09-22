@@ -26,7 +26,7 @@ export const Carousel = ({
   const [widths, setWidths] = useState<number[] | undefined>(undefined);
 
   const items = Children.toArray(children);
-  const totalPages = items.length / upfrontCount;
+  const totalPages = Math.ceil(items.length / upfrontCount);
 
   const { page, handleBack, handleForward } = usePage();
   const [leftButtonHandler, isLeftHovered] = useHover();
@@ -71,9 +71,9 @@ export const Carousel = ({
         <Box
           className={[
             "flex-1 h-full flex items-center justify-center",
-            page === 0 ? "cursor-not-allowed" : "cursor-pointer",
+            page === 0 ? "opacity-0" : "cursor-pointer opacity-100",
           ]}
-          onClick={handleBack}
+          onClick={page === 0 ? undefined : handleBack}
           {...leftButtonHandler}
         >
           <FaChevronLeft
@@ -148,9 +148,11 @@ export const Carousel = ({
         <Box
           className={[
             "flex-1 h-full flex items-center justify-center",
-            page === totalPages - 1 ? "cursor-not-allowed" : "cursor-pointer",
+            page === totalPages - 1
+              ? "opacity-0"
+              : "cursor-pointer opacity-100",
           ]}
-          onClick={handleForward}
+          onClick={page === totalPages - 1 ? undefined : handleForward}
           {...rightButtonHandler}
         >
           <FaChevronRight
